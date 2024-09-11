@@ -30,3 +30,9 @@ relationship 742de83c-e038-e257-a79d-0a31e963db93
 	fromColumn: 'snowball_output1 2'.month_roll
 	toColumn: Calendar.Date
 
+relationship 175a7dcb-3126-a929-27b4-65ccd5b55ef7
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: 'Invoice Data'.customer_id
+	toColumn: customer.customer_id
+

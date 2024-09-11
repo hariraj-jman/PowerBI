@@ -5,7 +5,7 @@ table 'Invoice Data'
 		dataType: int64
 		formatString: 0
 		lineageTag: 4e910e53-3dc4-4a6c-9c1f-885194b77430
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: customer_id
 
 		annotation SummarizationSetBy = Automatic
