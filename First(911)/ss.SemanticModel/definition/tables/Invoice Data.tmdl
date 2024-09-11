@@ -1,0 +1,198 @@
+table 'Invoice Data'
+	lineageTag: f6a238c8-b0eb-4dd0-ad05-6c9f30965101
+
+	column customer_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 4e910e53-3dc4-4a6c-9c1f-885194b77430
+		summarizeBy: sum
+		sourceColumn: customer_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_name
+		dataType: string
+		lineageTag: fa4e7d36-94bc-48d7-9a2f-8780881216cc
+		summarizeBy: none
+		sourceColumn: customer_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_family
+		dataType: string
+		lineageTag: 28a2f1e1-a5c3-44a4-bc8c-28c18d5cc9e4
+		summarizeBy: none
+		sourceColumn: product_family
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_sub_family
+		dataType: string
+		lineageTag: 11c9f1d7-1c1e-4a10-9e66-08c5f2c7b97a
+		summarizeBy: none
+		sourceColumn: product_sub_family
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_id
+		dataType: string
+		lineageTag: b900a6b1-a870-41fb-a11a-0a807cd398dc
+		summarizeBy: none
+		sourceColumn: product_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column country
+		dataType: string
+		lineageTag: 4299a083-1926-42ad-88b4-a65e00825b09
+		summarizeBy: none
+		sourceColumn: country
+
+		annotation SummarizationSetBy = Automatic
+
+	column region
+		dataType: string
+		lineageTag: 0c2e3e82-d0d1-4c24-9f95-a4ab6c15bb41
+		summarizeBy: none
+		sourceColumn: region
+
+		annotation SummarizationSetBy = Automatic
+
+	column payment_month
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 3b533c1a-6c2a-4d13-bbeb-6df4672a454e
+		summarizeBy: none
+		sourceColumn: payment_month
+
+		variation Variation
+			isDefault
+			relationship: b6021c02-d640-44c2-8abc-79e9fbf80395
+			defaultHierarchy: LocalDateTable_8f88d54f-0715-4b5e-a2e0-e33da5be6e4c.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column revenue_type
+		dataType: int64
+		formatString: 0
+		lineageTag: 7642758f-07d6-452a-b2f0-8fa71ea833e2
+		summarizeBy: sum
+		sourceColumn: revenue_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column revenue
+		dataType: double
+		lineageTag: 00f23832-2847-4f6f-9b09-c6dd61b7e3bf
+		summarizeBy: sum
+		sourceColumn: revenue
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column quantity
+		dataType: int64
+		formatString: 0
+		lineageTag: f5fd414d-a0da-47d2-bd4a-4850329ac5b9
+		summarizeBy: sum
+		sourceColumn: quantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column dimension_1
+		dataType: string
+		lineageTag: fdd5ebc5-a893-4046-87c2-dd03f9768b5a
+		summarizeBy: none
+		sourceColumn: dimension_1
+
+		annotation SummarizationSetBy = Automatic
+
+	column dimension_2
+		dataType: string
+		lineageTag: cda838c4-151a-4ba8-8dc9-0569a1b69b40
+		summarizeBy: none
+		sourceColumn: dimension_2
+
+		annotation SummarizationSetBy = Automatic
+
+	column dimension_3
+		dataType: string
+		lineageTag: 742c238f-45d8-4072-b9ce-1611642e25c2
+		summarizeBy: none
+		sourceColumn: dimension_3
+
+		annotation SummarizationSetBy = Automatic
+
+	column dimension_4
+		dataType: string
+		lineageTag: 64f66b1e-28bb-4b36-83f2-9a1262ab7eac
+		summarizeBy: none
+		sourceColumn: dimension_4
+
+		annotation SummarizationSetBy = Automatic
+
+	column dimension_5
+		dataType: string
+		lineageTag: e14b2bf1-b29b-482b-9797-565caddb7201
+		summarizeBy: none
+		sourceColumn: dimension_5
+
+		annotation SummarizationSetBy = Automatic
+
+	column dimension_6
+		dataType: string
+		lineageTag: d4b08412-36da-4976-9995-7c6c8082f83c
+		summarizeBy: none
+		sourceColumn: dimension_6
+
+		annotation SummarizationSetBy = Automatic
+
+	column dimension_7
+		dataType: string
+		lineageTag: dbe7d9c8-a6e0-4854-a4a8-906c294f7fb6
+		summarizeBy: none
+		sourceColumn: dimension_7
+
+		annotation SummarizationSetBy = Automatic
+
+	column dimension_8
+		dataType: string
+		lineageTag: 1e22cfc3-894f-48de-8911-37d8b32c368b
+		summarizeBy: none
+		sourceColumn: dimension_8
+
+		annotation SummarizationSetBy = Automatic
+
+	column dimension_9
+		dataType: string
+		lineageTag: d30f7221-c5f4-4136-9c43-8f3a01399f11
+		summarizeBy: none
+		sourceColumn: dimension_9
+
+		annotation SummarizationSetBy = Automatic
+
+	column dimension_10
+		dataType: string
+		lineageTag: 244139aa-9eec-4f43-91dd-f4e9969de57f
+		summarizeBy: none
+		sourceColumn: dimension_10
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Invoice Data' = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\HariRajGS\Downloads\Invoice Data.csv"),[Delimiter=",", Columns=21, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"customer_id", Int64.Type}, {"customer_name", type text}, {"product_family", type text}, {"product_sub_family", type text}, {"product_id", type text}, {"country", type text}, {"region", type text}, {"payment_month", type date}, {"revenue_type", Int64.Type}, {"revenue", type number}, {"quantity", Int64.Type}, {"dimension_1", type text}, {"dimension_2", type text}, {"dimension_3", type text}, {"dimension_4", type text}, {"dimension_5", type text}, {"dimension_6", type text}, {"dimension_7", type text}, {"dimension_8", type text}, {"dimension_9", type text}, {"dimension_10", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

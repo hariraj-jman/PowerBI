@@ -1,0 +1,29 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["customer","Invoice Data","Product","snowball_output","snowball_output1 2"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBIDesktopVersion = 2.132.1053.0 (24.08)
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table DateTableTemplate_fcf4068e-1258-4f6a-a77e-ad3d4f497923
+ref table customer
+ref table 'Invoice Data'
+ref table LocalDateTable_8f88d54f-0715-4b5e-a2e0-e33da5be6e4c
+ref table Product
+ref table Calendar
+ref table LocalDateTable_1043a57d-cf4e-4a1a-8e1b-a0b986d5ffcd
+ref table LocalDateTable_dc957e12-9d3f-4217-b77d-91529323e0e8
+ref table snowball_output
+ref table 'snowball_output1 2'
+
+ref cultureInfo en-US
+

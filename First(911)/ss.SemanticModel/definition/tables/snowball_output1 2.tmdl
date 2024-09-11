@@ -1,0 +1,256 @@
+table 'snowball_output1 2'
+	lineageTag: 537bc503-f6e3-4514-a440-60ce4214ba27
+
+	column month_roll
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 32e4764c-c13c-4266-93a3-a535c88a31b4
+		summarizeBy: none
+		sourceColumn: month_roll
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column period_type
+		dataType: string
+		lineageTag: f6224403-bf46-4a78-b959-9a02d24ec2b8
+		summarizeBy: none
+		sourceColumn: period_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_customer_churn
+		dataType: int64
+		formatString: 0
+		lineageTag: 90ec70e9-961c-4ae3-a563-af48d5bd8660
+		summarizeBy: sum
+		sourceColumn: total_customer_churn
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_product_churn
+		dataType: int64
+		formatString: 0
+		lineageTag: ed6b2b0b-ce75-41ae-9c21-3be12c310288
+		summarizeBy: sum
+		sourceColumn: total_product_churn
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_downsell
+		dataType: int64
+		formatString: 0
+		lineageTag: 30a501c5-52a3-4210-bbb6-4d11e13e032d
+		summarizeBy: sum
+		sourceColumn: total_downsell
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_grr
+		dataType: int64
+		formatString: 0
+		lineageTag: 1c51e454-d873-4b9b-88fb-cae745a3826f
+		summarizeBy: sum
+		sourceColumn: total_grr
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_upsell
+		dataType: int64
+		formatString: 0
+		lineageTag: 591d05d5-46c8-4419-87fa-50d530975642
+		summarizeBy: sum
+		sourceColumn: total_upsell
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_cross_sell
+		dataType: int64
+		formatString: 0
+		lineageTag: 4fb4f06f-68be-4d37-ba90-5f4087502241
+		summarizeBy: sum
+		sourceColumn: total_cross_sell
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_nrr
+		dataType: int64
+		formatString: 0
+		lineageTag: cd3e61b0-066c-480f-a44a-8d6a988c9721
+		summarizeBy: sum
+		sourceColumn: total_nrr
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_new_customer
+		dataType: int64
+		formatString: 0
+		lineageTag: 15050e76-b44b-40a8-8019-3ce45d642592
+		summarizeBy: sum
+		sourceColumn: total_new_customer
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_bop_arr
+		dataType: int64
+		formatString: 0
+		lineageTag: 485507ff-cfdf-42a2-a817-4ffd91010fd8
+		summarizeBy: sum
+		sourceColumn: total_bop_arr
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_eop_arr
+		dataType: int64
+		formatString: 0
+		lineageTag: 44b8f0f4-2cf8-4f5f-9935-201036ad5838
+		summarizeBy: sum
+		sourceColumn: total_eop_arr
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_churn_percent
+		dataType: string
+		lineageTag: 3f88b71d-660e-429c-b324-965cc5859cf1
+		summarizeBy: none
+		sourceColumn: customer_churn_percent
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_churn_percent
+		dataType: string
+		lineageTag: 2fc8252c-6ef2-4831-827a-a8b36f3753d7
+		summarizeBy: none
+		sourceColumn: product_churn_percent
+
+		annotation SummarizationSetBy = Automatic
+
+	column downsell_percent
+		dataType: string
+		lineageTag: 0b8eab94-715f-456f-a433-5cc3dc6474a4
+		summarizeBy: none
+		sourceColumn: downsell_percent
+
+		annotation SummarizationSetBy = Automatic
+
+	column grr_percent
+		dataType: string
+		lineageTag: 7f5fbae7-bb06-46bf-b217-3f1e6ac61c6d
+		summarizeBy: none
+		sourceColumn: grr_percent
+
+		annotation SummarizationSetBy = Automatic
+
+	column upsell_percent
+		dataType: string
+		lineageTag: 33d6c368-e616-4e60-ac06-bd5775c5dae0
+		summarizeBy: none
+		sourceColumn: upsell_percent
+
+		annotation SummarizationSetBy = Automatic
+
+	column cross_sell_percent
+		dataType: string
+		lineageTag: 3f1ec1a8-1354-4066-9465-28a9a9b6e9a7
+		summarizeBy: none
+		sourceColumn: cross_sell_percent
+
+		annotation SummarizationSetBy = Automatic
+
+	column nrr_percent
+		dataType: string
+		lineageTag: c675dc93-8b5b-4e14-81b3-3f8cffadb6d6
+		summarizeBy: none
+		sourceColumn: nrr_percent
+
+		annotation SummarizationSetBy = Automatic
+
+	column new_customer_percent
+		dataType: string
+		lineageTag: d50d7780-62ca-458d-a7d6-46bede0a2f02
+		summarizeBy: none
+		sourceColumn: new_customer_percent
+
+		annotation SummarizationSetBy = Automatic
+
+	column arr_percent
+		dataType: string
+		lineageTag: 6c79ef1e-2f0c-4aa5-b2ac-3e5ef3252a9f
+		summarizeBy: none
+		sourceColumn: arr_percent
+
+		annotation SummarizationSetBy = Automatic
+
+	column arr_% = IF([total_bop_arr] > 0, [total_eop_arr]/[total_bop_arr] * 100, 0)
+		dataType: double
+		lineageTag: 553ee2b7-f4ff-45fd-882a-a7ee03d89774
+		summarizeBy: sum
+		isDataTypeInferred
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column cross_sell_% = IF([total_bop_arr] > 0, [total_cross_sell] / [total_bop_arr] * 100, 0)
+		dataType: double
+		lineageTag: 9e8d352a-53ee-404b-ac14-b6f4e3362be0
+		summarizeBy: sum
+		isDataTypeInferred
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column down_sell_% = IF([total_bop_arr] > 0, [total_downsell] / [total_bop_arr] * 100, 0)
+		dataType: double
+		lineageTag: 8810fc26-b2f1-488d-8459-dc18d2319469
+		summarizeBy: sum
+		isDataTypeInferred
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column customer_churn_% = IF([total_bop_arr] > 0, 100 +([total_customer_churn] / [total_bop_arr] * 100), 0)
+		dataType: double
+		lineageTag: 84152d9c-055b-4298-9579-b12201115a22
+		summarizeBy: sum
+		isDataTypeInferred
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column upsell_% = IF([total_bop_arr] > 0, [total_upsell] / [total_bop_arr] * 100, 0)
+		dataType: double
+		lineageTag: a2041bbf-d95a-49cf-9da0-9c2f105ee020
+		summarizeBy: sum
+		isDataTypeInferred
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column new_customer_% = IF([total_bop_arr] > 0, [total_new_customer] / [total_bop_arr] * 100, 0)
+		dataType: double
+		lineageTag: 06c50216-c66d-4ba4-a682-91e194a50bc2
+		summarizeBy: sum
+		isDataTypeInferred
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'snowball_output1 2' = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\HariRajGS\Downloads\snowball_output1 2.csv"),[Delimiter=",", Columns=21, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"month_roll", type date}, {"period_type", type text}, {"total_customer_churn", Int64.Type}, {"total_product_churn", Int64.Type}, {"total_downsell", Int64.Type}, {"total_grr", Int64.Type}, {"total_upsell", Int64.Type}, {"total_cross_sell", Int64.Type}, {"total_nrr", Int64.Type}, {"total_new_customer", Int64.Type}, {"total_bop_arr", Int64.Type}, {"total_eop_arr", Int64.Type}, {"customer_churn_percent", type text}, {"product_churn_percent", type text}, {"downsell_percent", type text}, {"grr_percent", type text}, {"upsell_percent", type text}, {"cross_sell_percent", type text}, {"nrr_percent", type text}, {"new_customer_percent", type text}, {"arr_percent", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+
